@@ -4,6 +4,7 @@
 //HC-SR04 Ultrasonic Sensors
 //Motor Driver LM298M
 //DC Motor
+//TCRT5000 IR Sensors
 const int LINE1_PIN = 12; 
 const int LINE2_PIN = 11; 
 const int LINE3_PIN = 10; 
