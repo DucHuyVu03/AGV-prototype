@@ -1,5 +1,9 @@
 #include <Wire.h>   
 #include <Timer.h> 
+//Adruino UNO R3
+//HC-SR04 Ultrasonic Sensors
+//Motor Driver LM298M
+//DC Motor
 const int LINE1_PIN = 12; 
 const int LINE2_PIN = 11; 
 const int LINE3_PIN = 10; 
@@ -93,22 +97,23 @@ int Line_reader()
 }
 int Distance_reader()
 {
-  unsigned long duration; // biến đo thời gian
-  int distance;           // biến lưu khoảng cách
+  unsigned long duration; 
+  int distance;           
     
-  /* Phát xung từ chân trig */
-  digitalWrite(TRIG_PIN,0);   // tắt chân trig
+  // Sending pulse
+  digitalWrite(TRIG_PIN,0);   
   delayMicroseconds(2);
-  digitalWrite(TRIG_PIN,1);   // phát xung từ chân trig
-  delayMicroseconds(5);   // xung có độ dài 5 microSeconds
-  digitalWrite(TRIG_PIN,0);   // tắt chân trig
+  digitalWrite(TRIG_PIN,1);   
+  delayMicroseconds(5);   
+  digitalWrite(TRIG_PIN,0);   
     
-  /* Tính toán thời gian */
-  // Đo độ rộng xung HIGH ở chân echo. 
+
+  //Calculate the HIGH pulse by echo pin 
   duration = pulseIn(ECHO_PIN,HIGH);  
-  // Tính khoảng cách đến vật.
+  //Calculate the distance
   return distance = int(duration/2/29.412);
 }
+//Adjusting speed and directions of the agv by changing the write value of pins
 void Stop()
 {
   digitalWrite(IN1_PIN, LOW);
